@@ -9,7 +9,6 @@ async function apiService(method, data, endpoint=API_URL) {
         endpoint, 
         {
             method: method,
-            credentials:"include",
             headers: {
                 'Content-Type': 'application/json'
             },
