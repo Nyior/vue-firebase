@@ -10,6 +10,7 @@
     <a 
         class="btn btn-lg shadow ml-auto py-2"
         href="https://github.com/Nyior/vue-firebase"
+        target="_blank"
     >
         <i 
             class="fa fa-github m-0 p-0" 
