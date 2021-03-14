@@ -94,9 +94,18 @@ export default {
 
       apiService(method)
         .then(data => {
-          this.extractAgeData(data)
+        
+          if (data) {
+             this.extractAgeData(data) //if network request works display response data
+          }
+
+          if (!data) { //if network request fails grab persisted data from local storage
+            const localData = JSON.parse(localStorage.getItem("users"))
+            this.extractAgeData(localData)  
+          }
+
           //save response data to browser storage
-          window.localStorage.setItem("users", data);
+          localStorage.setItem("users", JSON.stringify(data));
 
           this.isLoading = false;
         })
@@ -108,6 +117,7 @@ export default {
 
   mounted: function() {
     document.title = "vue-firebase | Home";
+    
     this.loadUsers();
   }
 };
